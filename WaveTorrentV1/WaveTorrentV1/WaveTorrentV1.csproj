@@ -1,0 +1,119 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0F755BAA-DE65-46BB-B158-0C30E52CDEA3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WaveTorrentV1</RootNamespace>
+    <AssemblyName>WaveTorrentV1</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tester.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>tester.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="src\BEncode\BEncodeDictionary.cs" />
+    <Compile Include="src\BEncode\BEncodeInteger.cs" />
+    <Compile Include="src\BEncode\BEncodeList.cs" />
+    <Compile Include="src\BEncode\BEncodeString.cs" />
+    <Compile Include="src\BEncode\BEncodeValue.cs" />
+    <Compile Include="src\Client\BEP23\UncompactPeerList.cs" />
+    <Compile Include="src\Client\Messages\Cancel.cs" />
+    <Compile Include="src\Client\Messages\Choke.cs" />
+    <Compile Include="src\Client\Messages\Handshake.cs" />
+    <Compile Include="src\Client\Messages\Interested.cs" />
+    <Compile Include="src\Client\Messages\KeepAlive.cs" />
+    <Compile Include="src\Client\Messages\NotInterested.cs" />
+    <Compile Include="src\Client\Messages\Piece.cs" />
+    <Compile Include="src\Client\Messages\Request.cs" />
+    <Compile Include="src\Client\Messages\Unchoke.cs" />
+    <Compile Include="src\Client\Peer.cs" />
+    <Compile Include="src\Exceptions\BEncodeException.cs" />
+    <Compile Include="src\Exceptions\CancelException.cs" />
+    <Compile Include="src\Exceptions\HandshakeException.cs" />
+    <Compile Include="src\Exceptions\PieceException.cs" />
+    <Compile Include="src\Exceptions\RequestException.cs" />
+    <Compile Include="src\Exceptions\TorrentException.cs" />
+    <Compile Include="src\Parser\BEncodeDecoder.cs" />
+    <Compile Include="Listener.cs" />
+    <Compile Include="src\Exceptions\TrackerResponseException.cs" />
+    <Compile Include="src\Util\IPConverter.cs" />
+    <Compile Include="src\Util\RC4.cs" />
+    <Compile Include="src\Util\TorrentReader.cs" />
+    <Compile Include="src\Util\URLEncoder.cs" />
+    <Compile Include="tester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tester.Designer.cs">
+      <DependentUpon>tester.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
